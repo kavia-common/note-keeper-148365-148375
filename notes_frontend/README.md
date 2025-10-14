@@ -1,82 +1,53 @@
-# Lightweight React Template for KAVIA
+# Notes Frontend (React)
 
-This project provides a minimal React template with a clean, modern UI and minimal dependencies.
+A modern React UI to manage notes (create, view, edit, delete) with the Ocean Professional theme.
 
 ## Features
-
-- **Lightweight**: No heavy UI frameworks - uses only vanilla CSS and React
-- **Modern UI**: Clean, responsive design with KAVIA brand styling
-- **Fast**: Minimal dependencies for quick loading times
-- **Simple**: Easy to understand and modify
+- List notes with client-side search
+- Create and edit notes (title required, content optional)
+- Delete notes with confirmation
+- Loading and error states with toasts
+- Responsive and accessible UI
+- API base URL configurable via environment variable
 
 ## Getting Started
 
-In the project directory, you can run:
+1. Install dependencies:
+   - npm install
 
-### `npm start`
+2. Configure environment (optional):
+   - Copy `.env.example` to `.env` and adjust:
+     - REACT_APP_API_BASE_URL=http://localhost:3001
 
-Runs the app in development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+3. Run the development server:
+   - npm start
+   - Open http://localhost:3000
 
-### `npm test`
+Ensure the backend is running on http://localhost:3001 with endpoints:
+- GET /notes
+- POST /notes
+- PUT /notes/:id
+- DELETE /notes/:id
 
-Launches the test runner in interactive watch mode.
+## Project Structure
+- src/api/notesApi.js – API client (getNotes, createNote, updateNote, deleteNote)
+- src/components/Header.jsx – App header with gradient and create button
+- src/components/NotesList.jsx – Notes list, search, and actions
+- src/components/NoteForm.jsx – Modal form for create/edit with validation
+- src/components/ConfirmDialog.jsx – Confirmation modal for deletions
+- src/styles/theme.css – Ocean Professional styles
+- src/App.js – App shell and state management
 
-### `npm run build`
+## Theme
+Ocean Professional:
+- Primary #2563EB
+- Secondary/Success #F59E0B
+- Error #EF4444
+- Background #f9fafb
+- Surface #ffffff
+- Text #111827
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-## Customization
-
-### Colors
-
-The main brand colors are defined as CSS variables in `src/App.css`:
-
-```css
-:root {
-  --kavia-orange: #E87A41;
-  --kavia-dark: #1A1A1A;
-  --text-color: #ffffff;
-  --text-secondary: rgba(255, 255, 255, 0.7);
-  --border-color: rgba(255, 255, 255, 0.1);
-}
-```
-
-### Components
-
-This template uses pure HTML/CSS components instead of a UI framework. You can find component styles in `src/App.css`. 
-
-Common components include:
-- Buttons (`.btn`, `.btn-large`)
-- Container (`.container`)
-- Navigation (`.navbar`)
-- Typography (`.title`, `.subtitle`, `.description`)
-
-## Learn More
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Scripts
+- npm start – Start development server
+- npm run build – Production build
+- npm test – Run tests
